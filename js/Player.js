@@ -2,12 +2,18 @@ class Player{
 
     constructor(){}
 
+
     getCount(){
-       
-    }
-
-
-    updateCount(count){
-       
-    }
+        database.ref('playerCount').on("value",(data)=>{
+            playerCount=data.val()
+        })
+     }
+ 
+ 
+ 
+     update( count){
+        database.ref('/').update({
+        playerCount:count
+        })
+     }
 }
